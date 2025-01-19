@@ -1,0 +1,30 @@
+The issue was likely caused by the element having an explicit width and height, and the image being smaller than the element's width. To fix it, we can use one of the following approaches. 
+
+**Approach 1:  Setting `background-size: cover;`** 
+This approach ensures the background image covers the entire element while maintaining its aspect ratio, thus preventing unexpected horizontal repetition.
+
+```css
+/* bugSolution.css */
+div {
+  width: 300px;
+  height: 200px;
+  background-image: url('bg.jpg');
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+```
+
+**Approach 2:  Correcting the Width or Height**
+If you desire the image to repeat vertically, setting `background-size` is sufficient. If you want to keep the original dimensions of the image and repeat it, you might need to adjust the `width` and `height` to be proportional to the image dimensions. This avoids scaling of the image that might affect repetition.  
+
+```css
+/* bugSolution.css */
+div {
+  width: 100px; /* Adjust to image width */
+  height: 200px; /* Adjust to image height */
+  background-image: url('bg.jpg');
+  background-repeat: repeat-y;
+}
+```
+
+Choose the approach that best suits your design needs.  Remember to replace `'bg.jpg'` with the actual path to your background image.
